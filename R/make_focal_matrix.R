@@ -86,12 +86,19 @@ make_focal_matrix <- function(radius,
 }
 
 
-#' Quick plot of a focal matrix for sanity checking
+#' Quick plot of a focal matrix
 #'
 #' Uses the default \code{\link[graphics]{image}} function to visualize a
 #' matrix. The centre cell is indicated by an orange point.
 #'
-#' @param m A numeric matrix.
+#' @param m A numeric matrix representing a focal neighbourhood.
+#'
+#' @examples
+#' # Pacman
+#' m <- make_focal_matrix(100, start_bearing = 315, end_bearing = 225)
+#' plot_focal_matrix(m)
+#'
+#' @export
 #'
 plot_focal_matrix <- function(m) {
   image(t(m[nrow(m):1,] ), axes=FALSE, asp = c(1,1))

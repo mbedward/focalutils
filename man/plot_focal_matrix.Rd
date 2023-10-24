@@ -2,14 +2,20 @@
 % Please edit documentation in R/make_focal_matrix.R
 \name{plot_focal_matrix}
 \alias{plot_focal_matrix}
-\title{Quick plot of a focal matrix for sanity checking}
+\title{Quick plot of a focal matrix}
 \usage{
 plot_focal_matrix(m)
 }
 \arguments{
-\item{m}{A numeric matrix.}
+\item{m}{A numeric matrix representing a focal neighbourhood.}
 }
 \description{
 Uses the default \code{\link[graphics]{image}} function to visualize a
 matrix. The centre cell is indicated by an orange point.
+}
+\examples{
+# Pacman
+m <- make_focal_matrix(100, start_bearing = 315, end_bearing = 225)
+plot_focal_matrix(m)
+
 }
