@@ -3,11 +3,11 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-Provides a function (`make_focal_matrix`) to create matrices of circular or
-sector neighbourhoods for use with the `focal` function (package `terra`). Also
-has some utility functions for some common tasks with compass bearings such as
-converting bearings to and from Cartesian angles and determining the direction
-of shortest rotation between two bearings.
+An R package that provides a function (`make_focal_matrix`) to create matrices
+of circular or sector neighbourhoods for use with the `focal` function in the
+`terra` package. It also includes a few utility functions to work with compass
+bearings such as converting bearings to and from Cartesian angles and determining
+the direction and angle of the shortest rotation between two bearings.
 
 ## Installation
 
