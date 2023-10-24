@@ -33,6 +33,8 @@
 #' #
 #' w <- make_focal_matrix(10, 315, 225)
 #'
+#' @export
+#'
 make_focal_matrix <- function(radius,
                               start_bearing = NULL,
                               end_bearing = NULL,

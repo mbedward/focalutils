@@ -9,6 +9,8 @@
 #'
 #' @return Vector of corresponding compass angles in the range [0,360).
 #'
+#' @export
+#'
 rad_to_compass <- function(x) {
   (180 * (pi/2 - x) / pi) %% 360
 }
@@ -25,6 +27,8 @@ rad_to_compass <- function(x) {
 #'
 #' @return Vector of corresponding Cartesian angles in radians in the range
 #'   [0, 2*pi).
+#'
+#' @export
 #'
 compass_to_rad <- function(x) {
   x <- x %% 360
@@ -56,6 +60,8 @@ compass_to_rad <- function(x) {
 #' # Exactly opposite bearings are treated as clockwise
 #' compass_is_clockwise(270, 90)  # returns list(TRUE, 180)
 #'
+#' @export
+#'
 compass_is_clockwise <- function(b1, b2) {
   angle <- b2 - b1
   clockwise <- angle %% 360
@@ -77,6 +83,8 @@ compass_is_clockwise <- function(b1, b2) {
 #'
 #' @examples
 #' normalize_radians(-pi/4) # returns 7*pi/4 (approx 5.4978)
+#'
+#' @export
 #'
 normalize_radians <- function(x) {
   under <- x < 0
@@ -106,6 +114,8 @@ normalize_radians <- function(x) {
 #' @param b The second reference angle (end of arc).
 #'
 #' @return A logical vector the same length as x.
+#'
+#' @export
 #'
 angle_is_between <- function(x, a, b) {
   checkmate::assert_number(a)
