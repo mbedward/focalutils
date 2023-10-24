@@ -1,0 +1,16 @@
+Package: focalutils
+Title: Utility functions to create focal matrices and work with compass bearings
+Version: 0.0.1
+Date: 2023-10-24
+Authors@R: 
+    person("Michael", "Bedward", , "mbedward@uow.edu.au", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-9986-1286"))
+Description: Provides a function (make_focal_matrix) to create matrices of 
+  circular or sector neighbourhoods for use with the `focal` function (package 
+  `terra`). Also includes utility functions for some common tasks with compass
+  bearings such as converting bearings to and from Cartesian angles and 
+  determining the direction and angle of shortest rotation between two bearings.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
