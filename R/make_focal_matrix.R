@@ -10,14 +10,21 @@
 #'
 #' @param radius (integer > 0) Radius of the neighbourhood (pixels).
 #'
-#' @param include_centre (logical, default TRUE) Whether to include the centre
-#'   cell in the neighbourhood.
-#'
 #' @param start_bearing Optional compass bearing (degrees) to define a sector.
 #'   Default value @code{NULL} means create a full circular neighbourhood.
 #'
 #' @param end_bearing Optional compass bearing (degrees) to define a sector.
 #'   Ignored if \code{start_bearing} is NULL.
+#'
+#' @param include_centre (logical, default TRUE) Whether to include the centre
+#'   cell in the neighbourhood.
+#'
+#' @param inside_value (default 1) Value to assign to cells inside the
+#'   neighbourhood.
+#'
+#' @param outside_value (default NA) Value to assign to cells outside the
+#'   neighbourhood.
+#'
 #'
 #' @examples
 #' # Create a neighbourood with a radius of 10 pixels. Returns a 21 x 21 matrix.
@@ -38,7 +45,9 @@
 make_focal_matrix <- function(radius,
                               start_bearing = NULL,
                               end_bearing = NULL,
-                              include_centre = TRUE) {
+                              include_centre = TRUE,
+                              inside_value = 1,
+                              outside_value = NA) {
 
   checkmate::assert_int(radius, lower = 1)
   checkmate::assert_logical(include_centre, any.missing = FALSE, len = 1)
@@ -76,7 +85,7 @@ make_focal_matrix <- function(radius,
       inside <- inside & between
     }
 
-    as.integer(inside)
+    ifelse(inside, inside_value, outside_value)
   })
 
   # Centre cell
@@ -101,8 +110,10 @@ make_focal_matrix <- function(radius,
 #' @export
 #'
 plot_focal_matrix <- function(m) {
-  image(t(m[nrow(m):1,] ), axes=FALSE, asp = c(1,1))
+  clrs <- palette.colors(4)[-1]
 
-  points(0.5, 0.5, pch = 16, cex = 2, col = "orange")
+  image(t(m[nrow(m):1,] ), axes=FALSE, asp = c(1,1), col = clrs[1:2])
+
+  points(0.5, 0.5, pch = 16, cex = 2, col = clrs[3])
 }
 

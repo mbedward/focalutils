@@ -8,7 +8,9 @@ make_focal_matrix(
   radius,
   start_bearing = NULL,
   end_bearing = NULL,
-  include_centre = TRUE
+  include_centre = TRUE,
+  inside_value = 1,
+  outside_value = NA
 )
 }
 \arguments{
@@ -22,6 +24,12 @@ Ignored if \code{start_bearing} is NULL.}
 
 \item{include_centre}{(logical, default TRUE) Whether to include the centre
 cell in the neighbourhood.}
+
+\item{inside_value}{(default 1) Value to assign to cells inside the
+neighbourhood.}
+
+\item{outside_value}{(default NA) Value to assign to cells outside the
+neighbourhood.}
 }
 \description{
 Creates a binary weights matrix representing a circular neighbourhood to use
